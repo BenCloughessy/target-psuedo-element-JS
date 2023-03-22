@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+        .container1 {
+            height: 35vh;
+            text-align: center;
+            margin-bottom: 20px;
+            border: 1px solid rgb(50, 117, 219);
+            padding: 5% 5%;
+        }
+
+        .container1::after {
+            display: inline-block;
+            content: url('circle-solid.svg');
+            width: 10%;
+        }
+
+        /* Using pointer events to target only the psuedo element */
+        .container2 {
+            height: 35vh;
+            text-align: center;
+            margin-bottom: 20px;
+            border: 1px solid rgb(50, 117, 219);
+            padding: 5% 5%;
+            pointer-events: none;
+        }
+
+        .container2::after {
+            display: inline-block;
+            content: url('circle-solid.svg');
+            width: 10%;
+            pointer-events: all;
+        }
+
+    </style>
+    <title>Two Containers with Pseudo-Elements</title>
+</head>
+<body>
+    <p class="title">
+        Click the whitespace, then the black circle
+    </p>
+
+    <div class="container1">
+        <p>JS targets container</p>
+    </div>
+    <div class="container2">
+        <p>JS targets container. Container has pointer-events: none, and Pseudo-Element has pointer-events:all</p>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
